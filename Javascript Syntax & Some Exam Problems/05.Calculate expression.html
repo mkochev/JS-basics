@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+
+	<body>	
+		<input type="text"  id="expression" placeholder="Type expression here" />
+		<button type="submit" onclick="calculate()"> Evaluate </button>
+		<p id="result"> </p>
+		<button id="refresh" onClick="window.location.reload()">Clear</button>
+
+	</body>
+
+	<script>
+		function calculate() {
+			var expression = document.getElementById("expression").value;
+			//var regex = /[^0-9\-*/()+%]+/g;
+			//expression.replace(regex, '');
+			document.getElementById('result').innerHTML = eval(expression);
+		}
+	</script>
+
+</html>

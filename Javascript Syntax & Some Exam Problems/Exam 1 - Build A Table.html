@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+
+	<body>	
+		<input type="text"  id="range" placeholder="Type two numbers here" />
+		<button type="submit" onclick="generate()"> Evaluate </button>
+		<div id="result"> </div>
+		<button id="refresh" onClick="window.location.reload()">Clear</button>
+
+	</body>
+
+	<script>
+	// function generate() {
+	// 	var nums = document.getElementById('range').value;
+	// 	var num = nums.split(" ");
+		
+		
+		
+	
+	// 	// Print a Range ! 
+	// 	for (i = num[0]; i <= num[1]; i++ ) {
+	// 		console.log(i);
+	// 	}
+	// 	// Print quads
+
+	// 	for (i = num[0]; i <= num[1]; i++ ) {
+	// 		console.log(i*i);
+	// 	}
+
+	// 	Check if Fibonacci	
+	// 	for (var c = num[0]; c <= num[1]; c++) {
+	// 	 	var n1 = (5 * Math.pow(c, 2) + 4) ;
+	// 		var n2 = (5 * Math.pow(c, 2) - 4 );
+	// 		var check1 = Math.sqrt(n1) % 1 == 0;
+	// 		var check2 = Math.sqrt(n2) % 1 == 0 ;
+
+	// 		if (check1 || check2 === true) {
+	// 			console.log(c);
+	// 		} else {
+	// 			console.log('Not Fibonacci');
+	// 		}
+
+ //    	}
+
+
+	//}
+	// var nums = document.getElementById('range').value,
+	//  		num = nums.split(" ");
+
+	function generate() {
+		var nums = document.getElementById('range').value,
+	 		num = nums.split(" ");
+	 		start = parseInt(num[0]),
+	 		end = parseInt(num[1]),
+	 		final = "<table border='1'>\n<tr><th>Num</th><th>Square</th><th>Fib</th></tr>",
+	 		result = document.getElementById('result');
+
+	 		// Check if Fibonacci
+		function isFib(val) {
+
+			var prev = 0;
+			var curr = 1;
+
+			while(prev<=val){
+
+				if(prev == val) {
+
+					return 'Yes';
+				}
+					curr = prev + curr;
+					prev = curr - prev;
+			}
+
+				return "Nope";
+		}
+
+	 		for(var i = start; i<=end; i++){
+		        var numberSquare = i*i;
+		        var isFibonacci = isFib(i);
+		        var newRaw = '\n<tr><td>' +i + '</td><td>' + numberSquare + '</td><td>' + isFibonacci + '</td></tr>'
+		        final += newRaw
+		    }
+
+	 		final +=  '\n</table>';
+
+	 		result.innerHTML = final;
+	 		console.log(final);
+
+	 		
+		
+	}
+	</script>
+
+</html>
+
+
+
+
+
